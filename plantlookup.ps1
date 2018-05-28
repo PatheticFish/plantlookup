@@ -1,6 +1,65 @@
 $HabitKeywords = 'distribution', 'habitat', 'origin', 'altitude', 'range'
-$DescriptionKeywords = 'description', 'size', 'stem', 'spines', 'toxicity', 'poison', 'flower', 'bloom', 'fruit', 'leaves', 'inflorescence'
-$CultureKeywords = 'cultivation', 'propagation', 'care', 'gardening', 'irrigation', 'soil', 'feeding', 'houseplant', 'potting', 'repotting', 'fertilising', 'fertilizing', 'propagation', 'problems', 'use', 'display', 'harvest', 'availability', 'edges', 'light', 'position'
+
+$DescriptionKeywords = 'description', 'size', 'stem', 'spines', 'toxicity', 'poison',
+    'flower', 'bloom', 'fruit', 'leaves', 'inflorescence'
+
+$CultureKeywords = 'cultivation', 'propagation', 'care', 'gardening', 'irrigation',
+    'soil', 'feeding', 'houseplant', 'potting', 'repotting', 'fertilising', 'fertilizing',
+    'propagation', 'problems', 'use', 'display', 'harvest', 'availability', 'edges',
+    'light', 'position'
+
+<#
+    .SYNOPSIS
+    Routine for access Plants Rescue database
+    .DESCRIPTION
+    .
+    .PARAMETER Name
+    scientific/botanical (Genus epithet) name for query
+    .PARAMETER json
+    if specified, return information as Json instead of native object
+    .EXAMPLE
+    Get-PlantsRescueInfo 'capsicum annuum'
+#>
+function Get-PlantsRescueInfo {
+    param(
+        [string]$Name,
+        [switch]$json
+    )
+
+    # convert spaces and strip garbage
+    $Name = $Name.Trim() -replace " ","+" -replace "[^a-zA-Z+]",""
+
+    $SearchWR = Invoke-WebRequest "http://www.plantsrescue.com/?s=$Name"
+    if ($SearchWR.ParsedHtml.getElementsByClassName("post")[0].InnerHtml -match "href=`"(http://www.plantsrescue.com/[^`"]*)") {
+        $Url = $Matches[1]
+        $PlantPageWR = Invoke-WebRequest ($Url)
+    } else {
+        throw "couldn't find plant. check spelling and synonyms [http://www.plantsrescue.com/?s=$Name]"
+    }
+    
+    # Extract edit date from wordpress photo upload date
+    if (($PlantPageWR.Images -match "\.jpg")[0].src -match "wp-content/uploads/(\d\d\d\d)/(\d\d)/") {
+        [string]$ArticleProbableDate = (Get-Culture).DateTimeFormat.GetAbbreviatedMonthName($Matches[2]) + " " + $Matches[1]
+    } else { $ArticleProbableDate = "" }
+    $PlantData = New-Object psobject
+    $PlantData | Add-Member -Type NoteProperty -Name "Name" -Value $PlantPageWR.ParsedHtml.getElementsByTagName("h2")[0].InnerText
+ 
+    # Second div.content is article (first is searchbox fsr)
+    $ParsedPlantData = Parse-Keywords $PlantPageWR.ParsedHtml.getElementsByClassName("content")[1].InnerHtml -SplittingMethod ${function:Split-Strong}
+
+    $PlantData | Add-Member -Type NoteProperty -Name "Habit" -Value $ParsedPlantData.Habit
+    $PlantData | Add-Member -Type NoteProperty -Name "Description" -Value $ParsedPlantData.Description
+    $PlantData | Add-Member -Type NoteProperty -Name "Culture" -Value $ParsedPlantData.Culture
+
+    $PlantData | Add-Member -Type NoteProperty -Name "Source" -Value "Plants Rescue - Plants & Flowers"
+    $PlantData | Add-Member -Type NoteProperty -Name "Cite" -Value "`"$($PlantData.Name)`" www.plantsrescue.com $ArticleProbableDate. $(Get-Date -f "dd MMM yyyy"). <$Url>"
+
+    if ($json) {
+        return $PlantData | ConvertTo-json
+    } else {
+        return $PlantData
+    }
+}
 
 <#
     .SYNOPSIS
@@ -95,6 +154,22 @@ function Split-Bold {
     $RawHtml = $RawHtml -replace "<br>",""
 
     return $RawHtml -split "<b>|</b>" | select -Skip 1
+}
+<#
+    .SYNOPSIS
+    Splitter method for data defined with HTML strong tags
+    .DESCRIPTION
+    Splits data in the format <strong>Key</strong>Value[...] 
+    such that fieldnames and values are on alternating lines
+#>
+function Split-Strong {
+    param(
+        [string]$RawHtml
+    )
+
+    $RawHtml = $RawHtml -replace "<br>",""
+
+    return $RawHtml -split "<strong>|</strong>" | select -Skip 1
 }
 
 function Get-Pairs {
