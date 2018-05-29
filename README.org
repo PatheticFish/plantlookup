@@ -1,0 +1,108 @@
+* Plant datasheet scraping tool
+** Context
+Plant habitat and characteristic databases are difficult to find and usually limited in scope.
+*USDA PLANTS* features territorial information, but only within the U.S., and carries little 
+other information: name, habit, and images; useful as a field guide but not for scientific 
+inference.
+
+*The Garden.org Plants Database* and many others focus on information relevant to cultivation
+and landscaping use, as well as often being limited in scope to plant lists with common use in
+these fields.  Again, too limited for use here.
+
+Plant lists that do have better information do not have convenient APIs, or, usually, any way
+of even accessing them besides the web page.  Conversely, technical reports on individual
+species may have good, accurate, and diverse information (perhaps if combined), but may not be
+accessible, and parsing their text is currently nontrivial *[citation needed]*.
+
+** Introduction
+To summarize, the problems I encountered with finding plant information include:
+ - Small range or specific subset of species entries
+ - Preassumptions of data use (e.g. identification, cultivation)
+ - Difficult to parse or access
+ - Unpredictability of resource location (URL format: IDs, abbreviated symbols, unique format)
+
+In an attempt to remedy this situation, at least to an extent that allows investigation to
+continue, I wrote the ~plantlookup~ tool.
+
+The tool provides functions for parsing simple generic key-value fields found in an HTML
+document.  A lookup procedure follow the following steps:
+ 1) Take a plant species as input
+ 2) Perform a search for the organism in a database
+ 3) If a match is found, use the results to access the organism information
+ 4) Use a parsing strategy to filter out the key-value fields for the data on the page
+ 5) Sort the data based on keyword lists into habitat, description, and cultivation categories
+ 6) Add note information (i.e. name, source, citation)
+ 7) return the data as an object
+
+The current package provides routines for accessing the *LLIFLE encyclopedia of succulents* 
+(~Get-SucculentInfo~) and *Plants Rescue's Plants & Flowers database* (~Get-PlantsRescueInfo~),
+selected for diversity of information (specifically, that they contain descriptions in all 
+three areas of habitat, description, and cultivation).
+
+** Limitations and Suggestions
+plantlookup utilities gather entire descriptions into fields.  This results, in some cases,
+in paragraphs of text being collected into a given field.  Possible improvements are to use a 
+smarter text parsing method on the entire text to extract details, or at least to do some search
+on the values of fields gathered to identify different ideas (using predefined keywords, if
+necessary).
+
+Another issue with the effectiveness of these utilities is that it naïvely uses the category
+found in the document as the key name.  This means that not only do typographic errors from 
+the original document carry over, but fields will be inconsistent between sources.  A better
+method of sorting that assigns information to predefined categories would resolve this, but
+the details of such a system are unclear.
+
+** Function description
+*** ~Get-PlantsRescueInfo Name [-json]~
+Routine for accessing Plants Rescue data sheets <www.plantsrescue.com>
+ + *Name* : scientific/botanical (Genus epithet) name for query
+ + *json* : if specified, return information as Json instead of native object
+Example:
+#+BEGIN_SRC powershell
+Get-PlantsRescueInfo 'capsicum annuum'
+#+END_SRC
+This resource contains data in the format
+#+BEGIN_SRC html
+<strong>Key</strong>Value
+#+END_SRC
+and uses ~Split-Bold~ as a parsing technique
+
+*** ~Get-SucculentInfo Name [-json]~
+Routine for access succulent database <www.llifle.com>
+ + *Name* : scientific/botanical (Genus epithet) name for query
+ + *json* : if specified, return information as Json instead of native object
+Example:
+#+BEGIN_SRC powershell
+Get-SucculentInfo 'euphorbia resinifera'
+#+END_SRC
+This resource contains data in the format
+#+BEGIN_SRC html
+<b>Key</b>Value
+#+END_SRC
+and uses ~Split-Strong~ as a parsing technique
+
+** Function description (for developers)
+*** ~Parse-Keywords [string]RawHtml [scriptblock]SplittingMethod~
+ Uses SplittingMethod to find data in the section of HTML provided (should be just the target content),
+ then sorts it into categories based on a simple keyword matching heuristic.
+ + *RawHtml* : String containing the HTML to be parsed.  
+ + + Ideally this is a region containing only the relevant data, but ~Parse-Keywords~ does attempt to strip garbage after section tags.
+ + *SplittingMethod* : A scriptblock referring to a function to invoke for parsing.  See ~Split-Bold~ for an example.
+ 
+*** ~Split-Bold [string]RawHtml~
+ Splitter method for data defined with HTML bold (<b>) tags
+ 
+ Returns an array of strings such that fieldnames and values are on alternating lines.
+ 
+*** ~Split-Strong [string]RawHtml~
+ Splitter method for data defined with HTML strong (<strong>) tags
+ 
+ Returns an array of strings such that fieldnames and values are on alternating lines.
+ 
+*** ~Get-Pairs [object[]]Array~
+Transforms an array with an even number of elements (such as those produced by Split-X) to an array of two-element arrays
+Representing consecutive pairs of elements.
+
+#+BEGIN_SRC
+[1,2,3,4] -> [[1,2],[3,4]]
+#+END_SRC
