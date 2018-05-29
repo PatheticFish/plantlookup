@@ -1,0 +1,245 @@
+* Keyword search
+There was still the problem of finding non-homologous capsaicinoid producers.
+Because the effectiveness of genetic databases for finding functional analogues is doubted,
+we instead resort to searching existing research.  This too requires publication metadata,
+which the [[http://www.newcrops.info/]["Australian New Crops Web Site"]] (ANC) provides.
+
+Using ANC keyword indexes, we locate candidate capsaicinoid analog producers using keywords
+related to capsaicin mechanism: "capsaicin", "capsaicinoid", "TRPV1."  The results are
+summarized in the following tables.
+
+** capsaicin [[http://www.newcropskey.info/keywords/Keywords_capsaicin.htm]]
+| species                     | hits |
+|-----------------------------+------|
+| Capsicum_annuum             |  113 |
+| Capsicum_frutescens         |   82 |
+| Euphorbia_resinifera        |   34 |
+| Capsicum_chinense           |   24 |
+| Piper_nigrum                |    9 |
+| Zingiber_officinale         |    9 |
+| Capsicum_baccatum           |    8 |
+| Curcuma_longa               |    7 |
+| Catharanthus_roseus         |    5 |
+| Capsicum_pubescens          |    4 |
+| Rhodiola_rosea              |    4 |
+| Cannabis_sativa             |    3 |
+| Coffea_arabica              |    3 |
+| Polygonum_hydropiper        |    3 |
+| Solanum_tuberosum           |    3 |
+| Aframomum_melegueta         |    2 |
+| Allium_cepa                 |    2 |
+| Alpinia_officinarum         |    2 |
+| Azadirachta_indica          |    2 |
+| Camellia_sinensis           |    2 |
+| Carica_papaya               |    2 |
+| Drimys_winteri              |    2 |
+| Egletes_viscosa             |    2 |
+| Erythrina_cristagalli       |    2 |
+| Phyllanthus_urinaria        |    2 |
+| Phytolacca_americana        |    2 |
+| Ricinus_communis            |    2 |
+| Rosa_canina                 |    2 |
+| Semecarpus_anacardium       |    2 |
+| Zea_mays                    |    2 |
+| Acer_saccharum              |    1 |
+| Akebia_quinata              |    1 |
+| Allium_fistulosum           |    1 |
+| Allium_sativum              |    1 |
+| Allium_sativum              |    1 |
+| Alpinia_galanga             |    1 |
+| Armoracia_rusticana         |    1 |
+| Artocarpus_communis         |    1 |
+| Brassica_campestris         |    1 |
+| Brassica_nigra              |    1 |
+| Caesalpinia_bonduc          |    1 |
+| Caesalpinia_bonducella      |    1 |
+| Cajanus_cajan               |    1 |
+| Cajanus_cinereus            |    1 |
+| Canna_edulis                |    1 |
+| Capsicum_minimum            |    1 |
+| Cassia_fistula              |    1 |
+| Cichorium_intybus           |    1 |
+| Cinnamomum_cassia           |    1 |
+| Cinnamomum_tamala           |    1 |
+| Cinnamomum_verum            |    1 |
+| Cinnamomum_zeylanicum       |    1 |
+| Citrus_paradisi             |    1 |
+| Clarkia_breweri             |    1 |
+| Coronilla_varia             |    1 |
+| Croton_tiglium              |    1 |
+| Curcuma_xanthorrhiza        |    1 |
+| Curcuma_zedoaria            |    1 |
+| Daemonorops_draco           |    1 |
+| Diospyros_kaki              |    1 |
+| Dolichos_biflorus           |    1 |
+| Echinacea_purpurea          |    1 |
+| Eucalyptus_perriniana       |    1 |
+| Eucalyptus_polybractea      |    1 |
+| Eupatorium_purpureum        |    1 |
+| Fagus_grandifolia           |    1 |
+| Garcinia_cambogia           |    1 |
+| Gleditschia_triacanthos     |    1 |
+| Glycine_max                 |    1 |
+| Guajacum_officinale         |    1 |
+| Gymnema_sylvestre           |    1 |
+| Harpagophytum_procumbens    |    1 |
+| Heliopsis_longipes          |    1 |
+| Laurus_nobilis              |    1 |
+| Lepidium_sativum            |    1 |
+| Momordica_charantia         |    1 |
+| Mucuna_pruriens             |    1 |
+| Nelumbo_nucifera            |    1 |
+| Nicotiana_sylvestris        |    1 |
+| Nicotiana_tabacum           |    1 |
+| Ocimum_gratissimum          |    1 |
+| Origanum_vulgare            |    1 |
+| Panax_ginseng               |    1 |
+| Panax_pseudoginseng         |    1 |
+| Paullinia_cupana            |    1 |
+| Petroselinum_hortense       |    1 |
+| Pinus_nigra                 |    1 |
+| Pinus_pinaster              |    1 |
+| Piper_chaba                 |    1 |
+| Piper_marginatum            |    1 |
+| Piper_sylvaticum            |    1 |
+| Populus_tremuloides         |    1 |
+| Psidium_guajava             |    1 |
+| Psophocarpus_tetragonolobus |    1 |
+| Quercus_garryana            |    1 |
+| Quercus_ilex                |    1 |
+| Quercus_robur               |    1 |
+| Quercus_suber               |    1 |
+| Quillaja_saponaria          |    1 |
+| Rosmarinus_officinalis      |    1 |
+| Ruta_graveolens             |    1 |
+| Salix_daphnoides            |    1 |
+| Salix_purpurea              |    1 |
+| Salvia_officinalis          |    1 |
+| Salvia_splendens            |    1 |
+| Setaria_italica             |    1 |
+| Solanum_melongena           |    1 |
+| Sphagneticola_trilobata     |    1 |
+| Spilanthes_acmella          |    1 |
+| Spinacia_oleracea           |    1 |
+| Symphoricarpos_albus        |    1 |
+| Tagetes_patula              |    1 |
+| Tamarindus_indica           |    1 |
+| Taxus_baccata               |    1 |
+| Triticum_aestivum           |    1 |
+| Urtica_dioica               |    1 |
+| Vanilla_planifolia          |    1 |
+| Vigna_radiata               |    1 |
+| Wasabia_japonica            |    1 |
+| Withania_somnifera          |    1 |
+| Yucca_schidigera            |    1 |
+| Zingiber_mioga              |    1 |
+| Zostera_marina              |    1 |
+
+** capsaicinoids [[http://www.newcropskey.info/keywords/Keywords_CAP.htm]]
+| species                | hits |
+|------------------------+------|
+| Capsicum_annuum        |   41 |
+| Capsicum_frutescens    |   39 |
+| Capsicum_chinense      |   25 |
+| Capsicum_baccatum      |   10 |
+| Capsicum_pubescens     |    9 |
+| Asparagus_officinalis  |    3 |
+| Carica_papaya          |    3 |
+| Piper_nigrum           |    3 |
+| Allium_cepa            |    2 |
+| Cecropia_obtusifolia   |    2 |
+| Cecropia_peltata       |    2 |
+| Centella_asiatica      |    2 |
+| Cinnamomum_verum       |    2 |
+| Citrus_aurantium       |    2 |
+| Clematis_sp.           |    2 |
+| Crinum_asiaticum       |    2 |
+| Dillenia_indica        |    2 |
+| Garcinia_cowa          |    2 |
+| Garcinia_pedunculata   |    2 |
+| Glycine_max            |    2 |
+| Hippophae_rhamnoides   |    2 |
+| Leopoldia_comosa       |    2 |
+| Punica_granatum        |    2 |
+| Solanum_sp.            |    2 |
+| Tropaeolum_tuberosum   |    2 |
+| Ullucus_tuberosus      |    2 |
+| Vitis_vinifera         |    2 |
+| Zingiber_officinale    |    2 |
+| Adenophora_triphylla   |    1 |
+| Allium_sativum         |    1 |
+| Allium_sativum         |    1 |
+| Capparis_spinosa       |    1 |
+| Chenopodium_quinoa     |    1 |
+| Citrus_medica          |    1 |
+| Cucumis_melo           |    1 |
+| Curculigo_orchioides   |    1 |
+| Curcuma_longa          |    1 |
+| Emilia_coccinea        |    1 |
+| Hibiscus_tiliaceus     |    1 |
+| Myristica_fragrans     |    1 |
+| Oplopanax_horridus     |    1 |
+| Rosmarinus_officinalis |    1 |
+| Salvia_glutinosa       |    1 |
+| Salvia_officinalis     |    1 |
+| Silybum_marianum       |    1 |
+| Syzygium               |    1 |
+| Syzygium_aromaticum    |    1 |
+| Vernonia_amygdalina    |    1 |
+| Vigna_unguiculata      |    1 |
+   
+** TRPV1 [[http://www.newcropskey.info/keywords/Keywords_TRP.htm]]
+| species                 | hits |
+|-------------------------+------|
+| Euphorbia_resinifera    |   21 |
+| Cannabis_sativa         |    8 |
+| Capsicum_annuum         |    6 |
+| Capsicum_frutescens     |    6 |
+| Polygonum_hydropiper    |    6 |
+| Andrographis_paniculata |    5 |
+| Piper_nigrum            |    5 |
+| Eucalyptus_polybractea  |    3 |
+| Zingiber_officinale     |    3 |
+| Drimys_winteri          |    2 |
+| Mentha_pulegium         |    2 |
+| Mentha_spicata          |    2 |
+| Mirabilis_jalapa        |    2 |
+| Paeonia_lactiflora      |    2 |
+| Taxus_brevifolia        |    2 |
+| Zingiber_mioga          |    2 |
+| Aframomum_melegueta     |    1 |
+| Allium_sativum          |    1 |
+| Allium_sativum          |    1 |
+| Brassica_nigra          |    1 |
+| Capparis_spinosa        |    1 |
+| Capsicum_pubescens      |    1 |
+| Cestrum_laurifolium     |    1 |
+| Cinnamomum_cassia       |    1 |
+| Cinnamomum_zeylanicum   |    1 |
+| Croton_tiglium          |    1 |
+| Ocimum_gratissimum      |    1 |
+| Panax_ginseng           |    1 |
+| Sphagneticola_trilobata |    1 |
+| Zanthoxylum_americanum  |    1 |
+| Zanthoxylum_piperitum   |    1 |
+
+Note that these lists should not be considered accurate collections of the target,
+"plants which produce capsaicin-like substances."  There are two major problems regarding
+the accuracy of these tables in achieving that goal.
+
+Firstly, regardless of how well tagged or extensive the research database access of ANC is,
+the results will only include species that have prior study done in an academic setting.
+Thus, the ability of these lists to predict novel capsaicinoids is limited to something
+much less than might possibly be true in nature.
+
+Secondly, the association of a keyword with a paper (and therefore a plant it studies) is
+not equivalent to implying production by that plant.  For example, an experiment comparing
+the effects of capsaicin to an unrelated substance in /Glycine max/ may cause a false hit
+for /Glycine max/.
+
+For the second reason, we have taken multiple keywords to increase the accuracy of
+match-finding.  An organism with annotations for both e.g. TRPV1 and capsaicin, in
+addition to greater numbers of hits, is more likely to have been studied for capsaicinoid
+properties in particular.  The first problem is inherent to this approach, and we accept
+the limitations of scope but acknowledge that better methods of making these associations
+are desirable.
