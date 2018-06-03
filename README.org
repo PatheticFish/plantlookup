@@ -1,3 +1,4 @@
+/Changelog for this file: [[https://github.com/PatheticFish/plantlookup/commits/master/README.org]]/
 * Plant datasheet scraping tool
 ** Context
 Plant habitat and characteristic databases are difficult to find and usually limited in scope.
@@ -39,7 +40,7 @@ The current package provides routines for accessing the *LLIFLE encyclopedia of 
 selected for diversity of information (specifically, that they contain descriptions in all 
 three areas of habitat, description, and cultivation).
 
-** Limitations and Suggestions
+** Limitations and Future Suggestions
 plantlookup utilities gather entire descriptions into fields.  This results, in some cases,
 in paragraphs of text being collected into a given field.  Possible improvements are to use a 
 smarter text parsing method on the entire text to extract details, or at least to do some search
@@ -52,10 +53,19 @@ the original document carry over, but fields will be inconsistent between source
 method of sorting that assigns information to predefined categories would resolve this, but
 the details of such a system are unclear.
 
+The extent of the plantlookup utilities only covers two resources.  The usefulness of the tool
+is limited by the resources it can access, so adding more parsing routines would enhance it.
+Possible candidates include:
+ - [[https://www.cabi.org/isc/][CABI Invasive Species Compendium]]
+ - [[https://plants.ces.ncsu.edu/plants/][North Carolina State University Plants]]
+ - [[https://www.hort.purdue.edu/newcrop/Indices/index_ab.html][Purdue Crop Index]]
+ - [[http://www.iucnredlist.org/][IUCN Red List of Threatened Species]]
+ - [[http://powo.science.kew.org/][Kew Plants of the World Online]]
+
 ** Function description
 *** ~Get-PlantsRescueInfo Name [-json]~
 Routine for accessing Plants Rescue data sheets <www.plantsrescue.com>
- + *Name* : scientific/botanical (Genus epithet) name for query
+ + *Name* : scientific/botanical (Genus species) name for query
  + *json* : if specified, return information as Json instead of native object
 Example:
 #+BEGIN_SRC powershell
@@ -69,7 +79,7 @@ and uses ~Split-Bold~ as a parsing technique
 
 *** ~Get-SucculentInfo Name [-json]~
 Routine for access succulent database <www.llifle.com>
- + *Name* : scientific/botanical (Genus epithet) name for query
+ + *Name* : scientific/botanical (Genus species) name for query
  + *json* : if specified, return information as Json instead of native object
 Example:
 #+BEGIN_SRC powershell
