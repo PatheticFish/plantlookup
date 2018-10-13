@@ -1,4 +1,4 @@
-/Changelog for this file: [[https://github.com/PatheticFish/plantlookup/commits/master/README.org]]/
+/Changelog for this file: [[https://github.com/y-ack/plantlookup/commits/master/README.org]]/
 * Plant datasheet scraping tool
 ** Context
 Plant habitat and characteristic databases are difficult to find and usually limited in scope.
